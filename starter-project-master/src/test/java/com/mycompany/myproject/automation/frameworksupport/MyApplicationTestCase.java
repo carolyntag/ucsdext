@@ -17,12 +17,13 @@ public abstract class MyApplicationTestCase extends WebTestCase {
 
     @BeforeClass(alwaysRun = true)
     public void login() {
-        Credentials credentials = new Credentials(Constants.DEFAULT_USERNAME, Constants.DEFAULT_PASSWORD);
+        Credentials credentials = new Credentials(Constants.DEFAULT_USERNAME, Constants.DEFAULT_PASSWORD);  //goes to the Nexus repository and does a search - this project does not do a login so you have to do it
         if (!isHeadlessMode() && StringUtils.isNotEmpty(credentials.getUsername())
                 && StringUtils.isNotEmpty(credentials.getPassword())) {
             webAction(credentials);
         } else {
             webAction(Constants.LOGO_IMAGE);
+
         }
     }
 
